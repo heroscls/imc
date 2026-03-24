@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 
 class ImcController extends Controller
 {
-    public function form(){
-        return view('form');
-    }
 
     public function imc(Request $request){
         $peso = $request->peso;
@@ -30,6 +27,6 @@ class ImcController extends Controller
             $resultado = "Abaixo do Peso";
         }
 
-        return view('imc', compact('imc', 'resultado'));
+        return view('imc', ['imc' => $imc, 'resultado' => $resultado]);
     }
 }
